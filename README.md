@@ -1,4 +1,4 @@
-# 🃏 Super Trunfo - Cidades (Projeto em C)
+# 🃏 Super Trunfo - Países (Projeto em C)
 
 Este projeto foi desenvolvido como trabalho acadêmico da **Estácio**, utilizando a linguagem **C**.  
 O jogo é uma versão simplificada do **Super Trunfo**, em que duas cartas de cidades são comparadas com base em seus atributos.
