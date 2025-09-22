@@ -26,7 +26,7 @@ void preencherCarta(struct CartaSuperTrunfo *carta, const char *nomeCarta) {
     scanf(" %d", &numeroCodigo);
     sprintf(carta->codigo, "%c%02d", carta->estado, numeroCodigo);
 
-    getchar();  // Limpa o buffer antes de ler a próxima string
+    while ((getchar()) != '\n' && getchar() != EOF);  // Limpa o buffer completamente antes de ler a próxima string
     printf("Digite o nome da Cidade: ");
     scanf(" %[^\n]", carta->nomeCidade);
 
