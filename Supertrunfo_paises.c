@@ -18,8 +18,11 @@ struct CartaSuperTrunfo carta1, carta2;  // Definição da quantidade de cartas
 void preencherCarta(struct CartaSuperTrunfo *carta, const char *nomeCarta) {
     printf("\n===== Preenchendo %s =====\n", nomeCarta);
 
+    char entrada[10];
     printf("Escolha uma letra entre 'A' e 'H' para representar um dos oito estados: ");
-    scanf(" %c", &carta->estado);
+    scanf(" %c", entrada);
+    carta->estado = entrada[0];
+    while ((getchar()) != '\n');
 
     printf("Escolha um número de 1 a 4 para o código da carta: ");
     int numeroCodigo;
