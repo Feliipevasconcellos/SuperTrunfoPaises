@@ -49,6 +49,32 @@ void preencherCarta(struct CartaSuperTrunfo *carta, const char *nomeCarta) {
     printf(" %s registrada com sucesso!\n", nomeCarta);
 }
 
+void compararCartas(int atributo) {
+    
+    printf("\n Comparação de cartas: \n\n");
+    float valor1, valor2;
+    const char *nomeAtributo;
+
+    switch (atributo) {
+        case 1: valor1 = carta1.populacao; valor2 = carta2.populacao; nomeAtributo = "População"; break;
+        case 2: valor1 = carta1.area; valor2 = carta2.area; nomeAtributo = "Área"; break;
+        case 3: valor1 = carta1.pib; valor2 = carta2.pib; nomeAtributo = "PIB"; break;
+        case 4: valor1 = carta1.pontosTuristicos; valor2 = carta2.pontosTuristicos; nomeAtributo = "Pontos Turísticos"; break;
+        case 5: valor1 = carta1.densidadePopulacao; valor2 = carta2.densidadePopulacao; nomeAtributo = "Densidade Populacional"; break;
+        case 6: valor1 = carta1.pibPerCapita; valor2 = carta2.pibPerCapita; nomeAtributo = "PIB per Capita"; break;
+        case 7: valor1 = carta1.superPoder; valor2 = carta2.superPoder; nomeAtributo = "Superpoder"; break;
+        default: printf(" Opção inválida\n"); return;
+    }
+    
+    if (valor1 > valor2) {
+        printf(" A carta 1 - %s venceu na disputa de %s!\n", carta1.nomeCidade, nomeAtributo);
+    } else if (valor2 > valor1) {
+        printf(" A carta 2 - %s venceu na disputa de %s!\n", carta2.nomeCidade, nomeAtributo);
+    } else {
+        printf(" Empate! Ambas as cidades têm o mesmo valor de %s.\n", nomeAtributo);
+    }
+}
+
 int main(void) {
     // Mensagem de boas-vindas
     printf("****  Bem-vindo ao Super Trunfo - Cidades!  ****\n");
@@ -59,7 +85,20 @@ int main(void) {
     preencherCarta(&carta1, "Carta 1");
     preencherCarta(&carta2, "Carta 2");
 
-    
+    // Menu interativo
+    int escolha;
+    do {
+        printf("\n Escolha um atributo para comparar:\n");
+        printf("1 - População\n2 - Área\n3 - PIB\n4 - Pontos Turísticos\n5 - Densidade Populacional\n6 - PIB per Capita\n7 - Superpoder\n8 - Sair\n");
+        printf("Digite sua opção: ");
+        scanf("%d", &escolha);
+
+        if (escolha != 8) {
+            compararCartas(escolha);
+        }
+    } while (escolha != 8);
+
+    printf(" Obrigado por jogar! Até a próxima.\n");
 
     return 0;
 }
